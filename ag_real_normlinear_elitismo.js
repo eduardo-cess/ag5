@@ -5,13 +5,13 @@ var MongoClient = require('mongodb').MongoClient, assert = require('assert');
 var arrayExperimento = [];
 var populacao=[], aptidaoPopulacao=[], aptidaoSomaArray=[], pais=[], filhos=[], melhorIndividuo=[]; 
 var melhorPorGeracao = [], piorPorGeracao = [], mediaPorGeracao = [], aptidaoNormalizada = [];
-var arrayPopulacaoExperimento = [300, 300, 300, 300, 300, 300, 300, 300, 300, 300];
-//var arrayPopulacaoExperimento = [30];
+//var arrayPopulacaoExperimento = [300, 300, 300, 300, 300, 300, 300, 300, 300, 300];
+var arrayPopulacaoExperimento = [10];
 var qtdGeracoes = 100, tcruzamento = 0.75, tmutacao = 0.01, experimento = 1, qtdPopulacao = 0;
 var melhorAptidao = 0;
 
 const CANONICO = 1, ELITISMO = 2, NORM_LINEAR = 3, NORM_LIN_ELITISMO = 4, CANONICO_F6_MOD = 5, ELIT_F6_MOD = 6;
-var tipoAg = CANONICO;
+var tipoAg = NORM_LIN_ELITISMO;
 
 for(aux1 in arrayPopulacaoExperimento){
 	for(aux2 in _.range(3)){
