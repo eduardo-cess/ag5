@@ -83,10 +83,10 @@ function playAg(tipoAg){
 }
 
 function zerarVariaveis(){
-	var populacao=[], aptidaoPopulacao=[], aptidaoSomaArray=[], pais=[], filhos=[], melhorIndividuo=[]; 
-	var melhorPorGeracao = [], piorPorGeracao = [], mediaPorGeracao = [], aptidaoNormalizada = [];
+	populacao=[], aptidaoPopulacao=[], aptidaoSomaArray=[], pais=[], filhos=[], melhorIndividuo=[]; 
+	melhorPorGeracao = [], piorPorGeracao = [], mediaPorGeracao = [], aptidaoNormalizada = [];
+	melhorAptidao = 0, qtdPopulacao = 0;
 }
-
 function inicializar(qtdIndividuos, tipoAg){
 	var x, y, individuo = [];
 	for(i in _.range(qtdIndividuos)){
@@ -212,7 +212,7 @@ function normLinear(){
 		aptidaoNormalizada.push(min+(max-min)/(qtdPopulacao-1)*(i-1));
 }
 
-function bubbleSortPop(){
+function bubbleSortPop(a){
 	var swapped, temp, temp_pop;
 	do {
 		swapped = false;

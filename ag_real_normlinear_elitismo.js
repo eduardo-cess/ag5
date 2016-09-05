@@ -5,8 +5,8 @@ var MongoClient = require('mongodb').MongoClient, assert = require('assert');
 var arrayExperimento = [];
 var populacao=[], aptidaoPopulacao=[], aptidaoSomaArray=[], pais=[], filhos=[], melhorIndividuo=[]; 
 var melhorPorGeracao = [], piorPorGeracao = [], mediaPorGeracao = [], aptidaoNormalizada = [];
-//var arrayPopulacaoExperimento = [300, 300, 300, 300, 300, 300, 300, 300, 300, 300];
-var arrayPopulacaoExperimento = [10];
+var arrayPopulacaoExperimento = [300, 300, 300, 300, 300, 300, 300, 300, 300, 300];
+//var arrayPopulacaoExperimento = [10];
 var qtdGeracoes = 100, tcruzamento = 0.75, tmutacao = 0.01, experimento = 1, qtdPopulacao = 0;
 var melhorAptidao = 0;
 
@@ -83,8 +83,9 @@ function playAg(tipoAg){
 }
 
 function zerarVariaveis(){
-	var populacao=[], aptidaoPopulacao=[], aptidaoSomaArray=[], pais=[], filhos=[], melhorIndividuo=[]; 
-	var melhorPorGeracao = [], piorPorGeracao = [], mediaPorGeracao = [], aptidaoNormalizada = [];
+	populacao=[], aptidaoPopulacao=[], aptidaoSomaArray=[], pais=[], filhos=[], melhorIndividuo=[]; 
+	melhorPorGeracao = [], piorPorGeracao = [], mediaPorGeracao = [], aptidaoNormalizada = [];
+	melhorAptidao = 0, qtdPopulacao = 0;
 }
 
 function inicializar(qtdIndividuos, tipoAg){
@@ -212,12 +213,12 @@ function normLinear(){
 		aptidaoNormalizada.push(min+(max-min)/(qtdPopulacao-1)*(i-1));
 }
 
-function bubbleSortPop(){
+function bubbleSortPop(a){
 	var swapped, temp, temp_pop;
 	do {
 		swapped = false;
 		for (var i=0; i < a.length-1; i++) {
-			if (a[i] > a[i+1]) {
+			if (a[i] < a[i+1]) {
 				temp = a[i];
 				a[i] = a[i+1];
 				a[i+1] = temp;
